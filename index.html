@@ -24,7 +24,7 @@
     const token = Date.now().toString(36) + Math.random().toString(36).slice(2,10);
 
     // URL del Apps Script (tu web app URL)
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyeCm6LQUHOT4gV2BJ11tMxP7CiFVX9xES-lUyeIj7GQYKKeDouX_Sau4c4GyhgM7bL/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbySaB5drIoCijkX5l2bYHr92PaOprGnFkDYR7FswCU2Kuc_Z5UO9BoYPzgV-NgOXXL_/exec";
 
     const final = scriptURL + "?token=" + encodeURIComponent(token);
     document.getElementById('manualLink').href = final;
