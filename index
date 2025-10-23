@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Generando ticket...</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#071826;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
+    .card{padding:24px;max-width:400px}
+    .spinner{width:48px;height:48px;border-radius:50%;border:5px solid rgba(255,255,255,0.12);border-top-color:#ff6f00;animation:spin 1s linear infinite;margin:0 auto 16px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner" aria-hidden="true"></div>
+    <h3>🎟 Generando tu ticket...</h3>
+    <p style="opacity:.85">Si no se redirige, toca el enlace:</p>
+    <p><a id="manualLink" href="#" style="color:#ffb86b;text-decoration:none">Ir al ticket</a></p>
+  </div>
+
+  <script>
+    // Generar token único
+    const token = Date.now().toString(36) + Math.random().toString(36).slice(2,10);
+
+    // URL del Apps Script (tu web app URL)
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyeCm6LQUHOT4gV2BJ11tMxP7CiFVX9xES-lUyeIj7GQYKKeDouX_Sau4c4GyhgM7bL/exec";
+
+    const final = scriptURL + "?token=" + encodeURIComponent(token);
+    document.getElementById('manualLink').href = final;
+    window.location.replace(final);
+  </script>
+</body>
+</html>
